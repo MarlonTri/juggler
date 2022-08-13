@@ -1,0 +1,19 @@
+C:\Users\Marlon\Documents\Coding\Mahler\juggler>cmake-converter -pi -s juggler.sln
+0.000000 processes count = 16
+0.001000 warnings level = 2
+0.002000 include directories will be PRIVATE
+0.010001 WARN L1 : Solution architecture is x86 and may be mapped onto Win32 at projects.To avoid problems rename x86 -> Win32.
+0.011003 WARN L1 : Solution architecture is x86 and may be mapped onto Win32 at projects.To avoid problems rename x86 -> Win32.
+0.622380 1> Conversion started: Project powerful
+0.774932 1> Conversion done   : Project juggler (2 warnings)
+0.837932 Conversion of C:\Users\Marlon\Documents\Coding\Mahler\juggler\juggler.sln finished (4 warnings)
+
+Now you may run cmake like following samples:
+
+to generate:
+cmake -S "" -B "build" -G "Visual Studio 15 2017 Win64"
+    or
+cmake -S "" -B "build" -G "Visual Studio 16 2019" -A "x64"
+
+to build:
+cmake --build "build"

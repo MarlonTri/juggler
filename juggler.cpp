@@ -185,8 +185,13 @@ std::map<ull, int> juggle_sweep_3(long long cap) {
 	return m;
 }
 
+double secDelt(TimeVar stop, TimeVar start) {
+	return ((double)duration(stop - start)) / 1'000'000'000;
+}
+
 std::map<ull, int> juggle_sweep_4(ull cap) {
 	TimeVar start = timeNow();
+	TimeVar lastTick = start;
 	std::map<ull, int> m;
 	int max_steps = -1;
 
@@ -200,7 +205,9 @@ std::map<ull, int> juggle_sweep_4(ull cap) {
 			un = un * 1000 + threadInd;
 
 			if (un % 10'000'000 == 1) {
-				std::cout << "Progress: " << un / 1'000'000 << " mil\t(" << ((double)duration(timeNow() - start)) / 1'000'000'000  << " seconds)\n";
+				TimeVar now = timeNow();
+				std::cout << "Progress: " << un / 1'000'000 << " mil\t(" << secDelt(now, start) << " tot s,\t" << secDelt(now,lastTick) << "delt s)\n";
+				lastTick = now;
 			}
 
 			mpz_set_ui(hold, un);
